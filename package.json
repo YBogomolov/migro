@@ -1,0 +1,33 @@
+{
+  "name": "migro",
+  "version": "0.1.0",
+  "description": "Lightweight database migration framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YBogomolov/migro.git"
+  },
+  "keywords": [
+    "database",
+    "migration"
+  ],
+  "engines": {
+    "node": ">=7.6"
+  },
+  "author": "Yuriy Bogomolov <yuriy.bogomolov@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YBogomolov/migro/issues"
+  },
+  "homepage": "https://github.com/YBogomolov/migro#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "commander": "^2.11.0",
+    "debug": "^3.0.0",
+    "pg": "^7.1.2",
+    "require-directory": "^2.1.1"
+  }
+}
