@@ -17,7 +17,7 @@ program
 ;
 
 Object.keys(commands).forEach(cmd => {
-  program.command(cmd).action(commands[cmd]);
+  program.command(cmd).description(commands[cmd].description).action(commands[cmd]);
 });
 
 program.parse(process.argv);
