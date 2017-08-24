@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+'use strict';
+
+const packageJson = require('../package.json');
+const program = require('commander');
+const debug = require('debug')('migro:main');
+
+const commands = require('../lib/commands/');
+
+process.title = 'migro';
+
+program
+  .version(packageJson.version)
+  .usage('--driver=pg|mysql up|up-version|down|down-version|create <migration name>|create-version <version>')
+  .option('-d, --driver <driver>', 'Database driver. Supported values are: pg, mysql', /^(pg|mysql)$/i)
+  .option('-w, --working-dir <dir>', 'Working dir for Migro, where `migrations` folder will be searched for.')
+;
+
+Object.keys(commands).forEach(cmd => {
+  program.command(cmd).action(commands[cmd]);
+});
+
+program.parse(process.argv);
+
+debug(program);
