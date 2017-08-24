@@ -1,6 +1,7 @@
 # migro
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
+[![Build Status](https://travis-ci.org/YBogomolov/migro.svg?branch=develop)](https://travis-ci.org/YBogomolov/migro)
 
 Migro is a lightweight database migration framework.
 
