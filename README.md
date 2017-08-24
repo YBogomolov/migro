@@ -24,7 +24,7 @@ Migro can use special file called `.migrorc` in the root directory of the projec
     - `port` — database port.
     - `user` — database user (if any).
     - `password` — database user's password.
-    — `connectionString` — substitutes and precedes the other settings.
+    - `connectionString` — substitutes and precedes the other settings.
 - `workingDir`: path to the working directory, by default it is equal to the root path of the project.
 
 ## Commands
