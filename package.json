@@ -4,7 +4,7 @@
   "description": "Lightweight database migration framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/_mocha --recursive -t 30000 ./test"
   },
   "bin": "./bin/migro",
   "repository": {
@@ -30,5 +30,9 @@
     "debug": "^3.0.0",
     "pg": "^7.1.2",
     "require-directory": "^2.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.5.0",
+    "sinon": "^3.2.1"
   }
 }
