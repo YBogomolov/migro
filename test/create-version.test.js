@@ -20,7 +20,9 @@ describe('migro create-version <db> <version>', () => {
     });
 
     await command('test', '0.0.0', {
-      workingDir: '/'
+      parent: {
+        workingDir: '/'
+      }
     });
 
     assert(fsMock.mkdirAsync.calledOnce);

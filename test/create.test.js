@@ -25,7 +25,9 @@ describe('migro create <db> <name>', () => {
     });
 
     await command('test', 'my-migration', {
-      workingDir: '/'
+      parent: {
+        workingDir: '/'
+      }
     });
 
     assert(fsMock.writeFileAsync.calledOnce);
