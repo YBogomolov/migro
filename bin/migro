@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 'use strict';
 
+const path = require('path');
+const fs = require('fs');
 const packageJson = require('../package.json');
 const program = require('commander');
 const debug = require('debug')('migro:main');
 
 const commands = require('../lib/commands/');
+const drivers = require('../lib/drivers');
 
 process.title = 'migro';
 
@@ -20,6 +23,15 @@ Object.keys(commands).forEach(cmd => {
   program.command(cmd).description(commands[cmd].description).action(commands[cmd]);
 });
 
-program.parse(process.argv);
+program.drivers = drivers;
 
-debug(program);
+try {
+  program.config = JSON.parse(fs.readFileSync(path.join(process.cwd(), '.migrorc')).toString());
+} catch (e) {
+  debug(e);
+  program.config = {};
+}
+
+debug(program.config);
+
+program.parse(process.argv);
