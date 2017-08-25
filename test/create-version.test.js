@@ -16,13 +16,12 @@ describe('migro create-version <db> <version>', () => {
     };
 
     const command = require('../lib/commands/create-version <db> <version>').bind({
-      parent: {
-        workingDir: '/'
-      },
       fs: fsMock
     });
 
-    await command('test', '0.0.0');
+    await command('test', '0.0.0', {
+      workingDir: '/'
+    });
 
     assert(fsMock.mkdirAsync.calledOnce);
     assert(fsMock.mkdirAsync.calledWith('/migrations/test/0.0.0'));

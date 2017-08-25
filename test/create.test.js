@@ -20,14 +20,13 @@ describe('migro create <db> <name>', () => {
     };
 
     const command = require('../lib/commands/create <db> <name>').bind({
-      parent: {
-        workingDir: '/'
-      },
       fs: fsMock,
       timePrefixStub: '00000000000000'
     });
 
-    await command('test', 'my-migration');
+    await command('test', 'my-migration', {
+      workingDir: '/'
+    });
 
     assert(fsMock.writeFileAsync.calledOnce);
     assert(fsMock.writeFileAsync.calledWith('/migrations/test/0.0.0/00000000000000-my-migration.js'));
