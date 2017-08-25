@@ -28,7 +28,7 @@
     "bluebird": "^3.5.0",
     "commander": "^2.11.0",
     "debug": "^3.0.0",
-    "pg": "^7.1.2",
+    "pg": "^7.2.0",
     "require-directory": "^2.1.1"
   },
   "devDependencies": {
