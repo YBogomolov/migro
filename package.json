@@ -1,10 +1,10 @@
 {
   "name": "migro",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lightweight database migration framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/_mocha --recursive -t 30000 ./test"
   },
   "bin": "./bin/migro",
   "repository": {
@@ -28,7 +28,11 @@
     "bluebird": "^3.5.0",
     "commander": "^2.11.0",
     "debug": "^3.0.0",
-    "pg": "^7.1.2",
+    "pg": "^7.2.0",
     "require-directory": "^2.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.5.0",
+    "sinon": "^3.2.1"
   }
 }
