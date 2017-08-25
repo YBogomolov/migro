@@ -37,12 +37,12 @@ $ migro create-version <db> <version>
 — creates a new version unders the `migrations/db` directory.
 
 ```
-$ migro create <name>
+$ migro create <db> <name>
 ```
 — creates a new migration under the `migrations/<db>/<last possible version>/` directory. Last possible version is determined by using alphabetical sort of the `migrations`'s subdirectories. Convention of calling versions (`v1.0.0`, `1.0.0`, `version-1.0.0`, etc.) is entirely up to you — as long as plain alphabetical sort provides you with an expected result.
 
 ```
-$ migro up main
+$ migro up <db>
 ```
 — migrates the `db` up from the last applied migration to the last possible version.
 
