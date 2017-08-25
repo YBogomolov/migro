@@ -21,6 +21,7 @@ Migro can use special file called `.migrorc` in the root directory of the projec
 
 - `database`:
   - `<name>`:
+    - `database` — actual database name.
     - `host` — database host.
     - `port` — database port.
     - `user` — database user (if any).
@@ -31,14 +32,19 @@ Migro can use special file called `.migrorc` in the root directory of the projec
 ## Commands
 
 ```
-$ migro create-version <version>
+$ migro create-version <db> <version>
 ```
-— creates a new version unders the `migrations` directory.
+— creates a new version unders the `migrations/db` directory.
 
 ```
 $ migro create <name>
 ```
-— creates a new migration under the `migrations/<last possible version>/` directory. Last possible version is determined by using alphabetical sort of the `migrations`'s subdirectories. Convention of calling versions (`v1.0.0`, `1.0.0`, `version-1.0.0`, etc.) is entirely up to you — as long as plain alphabetical sort provides you with an expected result.
+— creates a new migration under the `migrations/<db>/<last possible version>/` directory. Last possible version is determined by using alphabetical sort of the `migrations`'s subdirectories. Convention of calling versions (`v1.0.0`, `1.0.0`, `version-1.0.0`, etc.) is entirely up to you — as long as plain alphabetical sort provides you with an expected result.
+
+```
+$ migro up main
+```
+— migrates the `db` up from the last applied migration to the last possible version.
 
 #### [TODO]:
 
