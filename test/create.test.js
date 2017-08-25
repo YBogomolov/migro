@@ -10,7 +10,7 @@ describe('migro create <db> <name>', () => {
     assert(command.description.length > 0);
   });
 
-  it('create a file under correct path', async () => {
+  it('should create a file under correct path', async () => {
     const fsMock = {
       writeFileAsync: sinon.stub().returns(Promise.resolve(true)),
       statSync: () => ({
