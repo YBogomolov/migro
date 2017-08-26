@@ -11,12 +11,12 @@ describe('migro create-version <db> <version>', () => {
   });
 
   it('should create a file under correct path', async () => {
-    const fsMock = {
-      mkdirAsync: sinon.stub().returns(Promise.resolve(true))
+    const mkdirp = {
+      sync: sinon.stub().returns(Promise.resolve(true))
     };
 
     const command = require('../lib/commands/create-version <db> <version>').bind({
-      fs: fsMock
+      mkdirp: mkdirp
     });
 
     await command('test', '0.0.0', {
@@ -25,7 +25,7 @@ describe('migro create-version <db> <version>', () => {
       }
     });
 
-    assert(fsMock.mkdirAsync.calledOnce);
-    assert(fsMock.mkdirAsync.calledWith('/migrations/test/0.0.0'));
+    assert(mkdirp.sync.calledOnce);
+    assert(mkdirp.sync.calledWith('/migrations/test/0.0.0'));
   });
 });
