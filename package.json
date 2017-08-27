@@ -4,7 +4,7 @@
   "description": "Lightweight database migration framework",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/_mocha --recursive -t 30000 ./test"
+    "test": "./node_modules/.bin/_mocha --recursive -t 30000 \"./test/**/*.test.js\""
   },
   "bin": "./bin/migro",
   "repository": {
