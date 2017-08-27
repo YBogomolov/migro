@@ -23,6 +23,7 @@ describe('migro up <db>', () => {
       name: undefined
     }));
     DriverMock.prototype.exit = sinon.stub().returns(Promise.resolve(true));
+    DriverMock.prototype.execute = sinon.stub().returns(Promise.resolve(true));
 
     const driverMock = new DriverMock();
 
@@ -46,5 +47,7 @@ describe('migro up <db>', () => {
     await command('test', commandMock);
     assert(driverMock.init.calledOnce);
     assert(driverMock.getLastMigration.calledOnce);
+    assert(driverMock.execute.calledOnce);
+    assert(driverMock.exit.calledOnce);
   });
 });
