@@ -8,7 +8,6 @@ const program = require('commander');
 const debug = require('debug')('migro:main');
 
 const commands = require('../lib/commands/');
-const drivers = require('../lib/drivers');
 
 process.title = 'migro';
 
@@ -22,8 +21,6 @@ program
 Object.keys(commands).forEach(cmd => {
   program.command(cmd).description(commands[cmd].description).action(commands[cmd]);
 });
-
-program.drivers = drivers;
 
 try {
   program.config = JSON.parse(fs.readFileSync(path.join(process.cwd(), '.migrorc')).toString());
