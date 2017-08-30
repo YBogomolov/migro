@@ -26,6 +26,7 @@ Migro can use special file called `.migrorc` in the root directory of the projec
     - `password` — database user's password.
     - `database` — actual database name (overrides `<name>` above).
 - `workingDir`: absolute path to the working directory, by default it is equal to the root path of the project.
+- `driver`: currently `pg` only (the default option, can be omitted).
 
 ## Commands
 
