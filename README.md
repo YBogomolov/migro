@@ -44,6 +44,14 @@ $ migro up <db>
 ```
 — migrates the `db` up from the last applied migration to the last possible version.
 
+```
+$ migro up-version <db>
+```
+— migrates the `db` up from the last applied migration using the following logic:
+
+- if current version doesn't have any unapplied migrations left, then the `db` is migrated to the latest migration of the next version;
+- if current version has at least one unapplied migration, then the `db` is migrated up to the latest migration of current version.
+
 ### Example of usage for PostgreSQL
 
 1. Create a new `.migrorc` with the connection options for you database:
