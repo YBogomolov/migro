@@ -24,6 +24,7 @@ Object.keys(commands).forEach(cmd => {
 
 try {
   program.config = JSON.parse(fs.readFileSync(path.join(process.cwd(), '.migrorc')).toString());
+  program.workingDir = program.config.workingDir;
 } catch (e) {
   debug(e);
   program.config = {};
