@@ -21,7 +21,7 @@ describe('migro up-version <db>', () => {
     assert(command.description.length > 0);
   });
 
-  it.only('should migrate the database up to the last migration of the current version', async () => {
+  it('should migrate the database up to the last migration of the current version', async () => {
     const readdirAsync = sinon.stub();
     readdirAsync.withArgs('/migrations/test').returns(Promise.resolve(['0.0.0', '0.0.1']));
     readdirAsync.withArgs('/migrations/test/0.0.0').returns(Promise.resolve(['00000000000000-dummy.js']));
