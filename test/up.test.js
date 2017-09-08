@@ -42,7 +42,7 @@ describe('migro up <db>', () => {
     await command('test', commandMock);
     assert(driverMock.init.calledOnce);
     assert(driverMock.getLastMigration.calledOnce);
-    assert(driverMock.execute.calledOnce);
+    assert(driverMock.execute.calledTwice);
     assert(driverMock.exit.calledOnce);
   });
 });
