@@ -17,7 +17,7 @@ const driverMock = {
 
 describe('migro up <db>', () => {
   it('should have a description', () => {
-    const command = require('../lib/commands/up <db>');
+    const command = require('../lib/commands/up');
     assert(command.description.length > 0);
   });
 
@@ -33,7 +33,7 @@ describe('migro up <db>', () => {
       }
     };
 
-    const command = require('../lib/commands/up <db>').bind({
+    const command = require('../lib/commands/up').bind({
       drivers: {
         get: sinon.stub().returns(driverMock)
       }

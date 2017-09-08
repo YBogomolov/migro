@@ -18,8 +18,8 @@ program
   .option('-w, --working-dir <dir>', 'Working dir for Migro, where `migrations` folder will be searched for.')
 ;
 
-Object.keys(commands).forEach(cmd => {
-  program.command(cmd).description(commands[cmd].description).action(commands[cmd]);
+Object.keys(commands).forEach(name => {
+  program.command(commands[name].command).description(commands[name].description).action(commands[name]);
 });
 
 try {
