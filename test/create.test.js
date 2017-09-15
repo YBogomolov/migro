@@ -6,7 +6,7 @@ const sinon = require('sinon');
 
 describe('migro create <db> <name>', () => {
   it('should have a description', () => {
-    const command = require('../lib/commands/create <db> <name>');
+    const command = require('../lib/commands/create');
     assert(command.description.length > 0);
   });
 
@@ -19,7 +19,7 @@ describe('migro create <db> <name>', () => {
       readdirAsync: sinon.stub().returns(['0.0.0'])
     };
 
-    const command = require('../lib/commands/create <db> <name>').bind({
+    const command = require('../lib/commands/create').bind({
       fs: fsMock,
       timePrefixStub: '00000000000000'
     });

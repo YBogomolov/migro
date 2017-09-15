@@ -6,7 +6,7 @@ const sinon = require('sinon');
 
 describe('migro create-version <db> <version>', () => {
   it('should have a description', () => {
-    const command = require('../lib/commands/create-version <db> <version>');
+    const command = require('../lib/commands/create-version');
     assert(command.description.length > 0);
   });
 
@@ -15,7 +15,7 @@ describe('migro create-version <db> <version>', () => {
       sync: sinon.stub().returns(Promise.resolve(true))
     };
 
-    const command = require('../lib/commands/create-version <db> <version>').bind({
+    const command = require('../lib/commands/create-version').bind({
       mkdirp: mkdirp
     });
 

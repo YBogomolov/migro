@@ -26,6 +26,7 @@ Migro can use special file called `.migrorc` in the root directory of the projec
     - `password` — database user's password.
     - `database` — actual database name (overrides `<name>` above).
 - `workingDir`: absolute path to the working directory, by default it is equal to the root path of the project.
+- `driver`: currently `pg` only (the default option, can be omitted).
 
 ## Commands
 
@@ -43,6 +44,36 @@ $ migro create <db> <name>
 $ migro up <db>
 ```
 — migrates the `db` up from the last applied migration to the last possible version.
+
+```
+$ migro up-version <db>
+```
+— migrates the `db` up from the last applied migration using the following logic:
+
+- if current version doesn't have any unapplied migrations left, then the `db` is migrated to the latest migration of the next version;
+- if current version has at least one unapplied migration, then the `db` is migrated up to the latest migration of current version.
+
+```
+$ migro down <db> <number>
+```
+— migrates the `db` from the latest applied migration down `number` of migrations.
+
+```
+$ migro down-version <db>
+```
+— migrates the `db` down one version, rolling back all migrations from the latest version.
+
+## Command line options
+
+```
+-d, --driver
+```
+Database driver alias. Supported value is `pg` only at the moment.
+
+```
+-w, --working-dir
+```
+Working directory, which contains the `migrations` directory. Overrides value from the `.migrorc`.
 
 ### Example of usage for PostgreSQL
 
@@ -83,7 +114,15 @@ Created migration /my-project/migrations/main/0.0.1/20170825225258-alter-table-U
 
 ```
 $ migro up main
-Running migration 0.0.1 : 20170825225258-alter-table-Users-add-column-name.js
+Running migration for version 0.0.1: 20170825225258-alter-table-Users-add-column-name.js
+Done
+```
+
+6. Rollback migrations for the latest version, as you have found that they contain errors:
+
+```
+$ migro down-version main
+Rolling back migration for version 0.0.1: 20170825225258-alter-table-Users-add-column-name.js
 Done
 ```
 

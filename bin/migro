@@ -13,17 +13,19 @@ process.title = 'migro';
 
 program
   .version(packageJson.version)
-  .usage('--driver=pg|mysql up|up-version|down|down-version|create <migration name>|create-version <version>')
-  .option('-d, --driver <driver>', 'Database driver. Supported values are: pg, mysql', /^(pg|mysql)$/i)
+  .usage('--driver=pg up|up-version|down|down-version|create <migration name>|create-version <version>')
+  .option('-d, --driver <driver>', 'Database driver. Supported values are: pg', /^(pg)$/i)
   .option('-w, --working-dir <dir>', 'Working dir for Migro, where `migrations` folder will be searched for.')
 ;
 
-Object.keys(commands).forEach(cmd => {
-  program.command(cmd).description(commands[cmd].description).action(commands[cmd]);
+Object.keys(commands).forEach(name => {
+  program.command(commands[name].command).description(commands[name].description).action(commands[name]);
 });
 
 try {
   program.config = JSON.parse(fs.readFileSync(path.join(process.cwd(), '.migrorc')).toString());
+  program.workingDir = program.config.workingDir;
+  program.driver = program.config.driver || 'pg';
 } catch (e) {
   debug(e);
   program.config = {};

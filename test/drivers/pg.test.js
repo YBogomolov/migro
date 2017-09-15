@@ -5,7 +5,7 @@ const assert = require('assert');
 const sinon = require('sinon');
 
 const PGDriver = require('../../lib/drivers/pg');
-const SQL = require('../../lib/util/sql');
+const queries = require('../../lib/drivers/queries');
 
 describe('PG driver', () => {
   it('should create a new PG driver instance', async () => {
@@ -29,8 +29,8 @@ describe('PG driver', () => {
     assert(pg._initialized);
     assert(pg._pg.connect.calledOnce);
     assert(pg._pg.query.calledTwice);
-    assert(pg._pg.query.firstCall.calledWith(SQL.pg.CHECK_MIGRATIONS_TABLE_EXISTENCE));
-    assert(pg._pg.query.secondCall.calledWith(SQL.pg.CREATE_MIGRATIONS_TABLE));
+    assert(pg._pg.query.firstCall.calledWith(queries.pg.CHECK_MIGRATIONS_TABLE_EXISTENCE));
+    assert(pg._pg.query.secondCall.calledWith(queries.pg.CREATE_MIGRATIONS_TABLE));
   });
 
   it('should get the latest version & migration as undefined on empty DB', async () => {
