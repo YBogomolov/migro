@@ -32,15 +32,15 @@ describe('MySQL driver', () => {
   });
 
   it('should get the latest version & migration as undefined on empty DB', async () => {
-    const mysql = new MySQLDriver({});
-    mysql._mysql = {
+    const driver = new MySQLDriver({});
+    driver._mysql = {
       queryAsync: sinon.stub().returns(Promise.resolve({
         rows: [{ exists: false }]
       })),
       connectAsync: sinon.stub().returns(Promise.resolve(true))
     };
 
-    const res = await mysql.getLastMigration();
+    const res = await driver.getLastMigration();
     assert(res.name === undefined);
     assert(res.version === undefined);
   });
