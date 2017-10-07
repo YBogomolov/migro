@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/YBogomolov/migro.svg?branch=master)](https://travis-ci.org/YBogomolov/migro)
 [![npm](https://img.shields.io/npm/v/migro.svg)](https://www.npmjs.com/package/migro)
 
-Migro is a lightweight database migration framework.
+Migro is a lightweight database migration tool.
 
 ## Getting started
 
@@ -12,6 +12,12 @@ Install migro using the following command:
 
 ```
 $ npm install --save migro
+```
+
+Or install it globally to use without NPM aliases:
+
+```
+# npm install -g migro
 ```
 
 ## Configuration
@@ -26,7 +32,7 @@ Migro can use special file called `.migrorc` in the root directory of the projec
     - `password` — database user's password.
     - `database` — actual database name (overrides `<name>` above).
 - `workingDir`: absolute path to the working directory, by default it is equal to the root path of the project.
-- `driver`: currently `pg` only (the default option, can be omitted).
+- `driver`: one of the following: `pg`, `mysql`.
 
 ## Commands
 
@@ -99,7 +105,7 @@ If you database has a long name, you can add separate `database` field in the co
 $ migro create-version main 0.0.1
 Path /my-project/migrations/main/0.0.1 successfully created.
 ```
-Please note that `migrations` directory is created automatically if it is not present. You overrid its placement by adding a `workingDir` parameter to `.migrorc` or by passing it with `-w` argument to `migro` command.
+Please note that `migrations` directory is created automatically if it is not present. You override its placement by adding a `workingDir` parameter to `.migrorc` or by passing it with `-w` argument to `migro` command.
 
 3. Create a new migration. It is recommended to give it a meaningful name, so you'll understand what it does just by looking at the file name.
 
