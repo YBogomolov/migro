@@ -1,7 +1,7 @@
 {
   "name": "migro",
-  "version": "0.1.0",
-  "description": "Lightweight database migration framework",
+  "version": "0.2.0",
+  "description": "Lightweight database migration tool",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/_mocha --recursive -t 30000 \"./test/**/*.test.js\""
@@ -13,7 +13,14 @@
   },
   "keywords": [
     "database",
-    "migration"
+    "migration",
+    "db",
+    "migrate",
+    "schema",
+    "mysql",
+    "postgresql",
+    "postgres",
+    "pg"
   ],
   "engines": {
     "node": ">=7.6"
