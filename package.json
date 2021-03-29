@@ -1,6 +1,6 @@
 {
   "name": "migro",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Lightweight database migration tool",
   "main": "index.js",
   "scripts": {
@@ -26,22 +26,22 @@
     "node": ">=7.6"
   },
   "author": "Yuriy Bogomolov <yuriy.bogomolov@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/YBogomolov/migro/issues"
   },
   "homepage": "https://github.com/YBogomolov/migro#readme",
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "commander": "^2.11.0",
-    "debug": "^3.0.0",
-    "mkdirp": "^0.5.1",
-    "mysql": "^2.14.1",
-    "pg": "^7.2.0",
+    "bluebird": "^3.7.2",
+    "commander": "^7.2.0",
+    "debug": "^4.3.1",
+    "mkdirp": "^1.0.4",
+    "mysql": "^2.18.1",
+    "pg": "^8.5.1",
     "require-directory": "^2.1.1"
   },
   "devDependencies": {
-    "mocha": "^3.5.0",
-    "sinon": "^3.2.1"
+    "mocha": "^8.3.2",
+    "sinon": "^10.0.0"
   }
 }
