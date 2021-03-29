@@ -26,7 +26,7 @@
     "node": ">=7.6"
   },
   "author": "Yuriy Bogomolov <yuriy.bogomolov@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/YBogomolov/migro/issues"
   },
