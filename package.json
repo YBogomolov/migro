@@ -23,7 +23,7 @@
     "pg"
   ],
   "engines": {
-    "node": ">=7.6"
+    "node": ">=10"
   },
   "author": "Yuriy Bogomolov <yuriy.bogomolov@gmail.com>",
   "license": "MIT",
