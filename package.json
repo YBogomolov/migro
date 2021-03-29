@@ -1,12 +1,14 @@
 {
   "name": "migro",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Lightweight database migration tool",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/_mocha --recursive -t 30000 \"./test/**/*.test.js\""
   },
-  "bin": "./bin/migro",
+  "bin": {
+    "migro": "bin/migro"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/YBogomolov/migro.git"
